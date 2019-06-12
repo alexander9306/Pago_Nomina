@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Main Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/Main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <nav class="nav nav-pills nav-justified">
+        <a class="nav-item nav-link active" href="#">Active</a>
+        <a class="nav-item nav-link" href="#">Much longer nav link</a>
+        <a class="nav-item nav-link" href="#">Link</a>
+        <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </nav> -->
+    <div class="jumbotron-fluid presentation1">
+        <div class="jumbotron-fluid main-menu text-center">
+            <h1 class="display-3" id="title">Usuarios</h1>
+            <p class="lead">Crea o edita usuarios</p>
+        </div>
+
+        <div class="container">
+            <h1 class="h5 text-secondary">Crea un nuevo usuario</h1>
+            <div class="row">
+                <div class="col order-0">
+                    <form>
+                        <div class="form-group">
+                            <label for="RegisterUser-Name">Nombre</label>
+                            <input type="text" class="form-control" id="RegisterUser-Name">
+                        </div>
+                        <div class="justify-content-end     ">
+                            <button type="button" class="btn btn-primary btn-lg btn-block mt-5"
+                                onclick="CreateUser()">Añadir</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col order-1">
+                    <form>
+                        <div class="form-group">
+                            <label for="RegisterUser-Email">Email</label>
+                            <input type="email" class="form-control" id="RegisterUser-Email">
+                        </div>
+                        <div class="justify-content-end     ">
+                            <button type="button" class="btn btn-info btn-lg btn-block mt-5" onclick="EditRow()"
+                                id="btn-edit">Editar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col order-2">
+                    <form>
+                        <div class="form-group">
+                            <label for="RegisterUser-Sueldo">Sueldo</label>
+                            <input type="number" min="1" class="form-control" id="RegisterUser-Sueldo">
+                        </div>
+                        <div class="justify-content-end     ">
+                            <button type="button" class="btn btn-danger btn-lg btn-block mt-5" data-toggle="modal"
+                                data-target="#ValidateAdmin">Eliminar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container user-table">
+            <table class="table table-hover" id="tabletoPrint">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Sueldo</th>
+                    </tr>
+                </thead>
+                <tbody id="firstData">
+                    <tr>
+                        <td>[[#]]</td>
+                        <td>[[Nombre]]</td>
+                        <td>[[Email]]</td>
+                        <td>[[Sueldo]]</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="jumbotron-fluid presentation2">
+        <div class="jumbotron-fluid main-menu2 text-center">
+            <h1 class="display-3" id="title">Nominas</h1>
+            <p class="lead">Calcula el pago del empleado</p>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+
+                <div class="col orde-0">
+                    <form>
+                        <fieldset disabled>
+                            <div class="form-group">
+                                <label for="Sueldo">Sueldo neto del Empleado</label>
+                                <input type="text" class="form-control" id="input_SueldoEmpleado"
+                                    placeholder="El sueldo es: $">
+                            </div>
+                            <fieldset disabled>
+                                <div class="form-group">
+                                    <label for="disabledTextInput">Descuento de seguro</label>
+                                    <input type="text" id="input_Seguro" class="form-control">
+                                </div>
+                            </fieldset>
+                    </form>
+                </div>
+
+                <div class="col order-1">
+                    <form>
+                        <fieldset disabled>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Descuento de Infotep</label>
+                                <input type="text" id="input_Infotep" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Descuento de AFP</label>
+                                <input type="text" id="input_AFP" class="form-control">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="col order-2">
+                    <form>
+                        <fieldset disabled>
+                            <div class="form-group">
+                                <label for="disabledTextInput">Impuesto sobre la renta</label>
+                                <input type="text" id="input_SRenta" class="form-control">
+                            </div>
+                            <div class="form-group ">
+                                <label for="disabledTextInput">Pago total</label>
+                                <input type="text" id="input_PTotal" class="form-control bg-primary text-white">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="ValidateAdmin" tabindex="-1" role="dialog" aria-labelledby="ValidateAdminLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ValidateAdminLabel">Introduzca la contraseña del administrador</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="password" id="ValidateAdminPass" class="form-control">
+                        <span class="text-danger" id="help-block"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="deleteRowToInput()">Borrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.miranda.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/Main.js"></script>
+</body>
+
+</html>
