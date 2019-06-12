@@ -1,0 +1,31 @@
+$form-color: #877bf0c0;
+
+.presentation1{
+    background-image: url("../img/mountain.png");
+    background-size: cover;
+    padding: 4em;
+
+    .main-menu {
+        background-color:transparent;
+    }
+    .user-table{
+        margin-top: 1.5em;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
+
+.selected
+{background-color: red; font-weight: bold; color: #fff;}
+
+.presentation2{
+    background-image: url("../img/mountains-1412683_1280.png");
+    background-size: cover;
+    padding-bottom: 15em;
+    .main-menu2{
+        background-color: transparent;
+        margin-bottom: 2em;
+        margin-top: -3em;
+    }
+}

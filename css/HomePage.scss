@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display');
+
+$open-sans: 'Open Sans',
+sans-serif;
+$header-font: 'Playfair Display',
+serif;
+
+$form-color: rgba(107, 160, 173, 0.808);
+
+body{
+    background-image: url("../img/mountain.png");
+}
+
+.heading {
+    background-color: transparent;
+    background-size: cover;
+    min-height: 40vw;
+}
+
+.form-container {
+    margin-top: 8vh;
+    margin-bottom: 8em;
+    font-family: $open-sans;
+    font-size: 1.1rem;
+    background: $form-color;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+
+
+    .login-img{
+        margin-left: 6em;
+        margin-bottom: 0.5em;
+    }
+    .form-control {
+        font-family: $open-sans;
+        font-size: 0.93rem;
+    }
+}
+
